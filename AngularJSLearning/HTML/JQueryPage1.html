@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <!--<input type="button" value="ClickToSeeDayAndTime" onclick="ShowDayAndTime()" />
+    <input type="button" value="ClickToPrintCurrentPage" onclick="PrintCurrentPage()" />
+    <input type="button" value="ClickToShowCurrentDateInDiffFormat" onclick="ShowCurrentDate()" /><br /><br />-->
+    <!--Enter length of 1st side<input type="text" id="text1" /><br /><br />
+    Enter lentth of 2nd side<input type="text" id="text2" /><br /><br />
+    Enter lentth of 3rd side<input type="text" id="text3" /><br /><br />
+    <input type="button" value="AreaOfTriangle" onclick="CalAreaOfTriangle()" />
+    <p id="p1"></p>
+    <input type="text" id="text1" />-->
+    <input type="text" id="ani1" />
+    <input type="button" value="Submit" onclick="animate1()" />
+
+    <script>
+        function ShowDayAndTime() {
+            var currentDate = new Date();
+            var weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            document.write("Today is : " + weekDays[currentDate.getDay()] + "</br>");
+            var hour = currentDate.getHours();
+            var minute = currentDate.getMinutes();
+            var second = currentDate.getSeconds();
+            var prepand = hour >= 12 ? " PM" : " AM";
+            hour = (hour >= 12) ? hour - 12 : hour;
+            if (hour === 0 && prepand === "PM") {
+                if (minute === 0 && second === 0) {
+                    hour = 12;
+                    prepand = " Noon";
+                } else {
+                    hour = 12;
+                    prepand = " PM";
+                }
+            }
+            if (hour === 0 && prepand === "AM") {
+                if (minute === 0 && second === 0) {
+                    hour = 12;
+                    prepand = " MidNight";
+                } else {
+                    hour = 12;
+                    prepand = " AM";
+                }
+            }
+            document.write("Current Time is : " + hour + prepand + " : " + minute + " : " + second);
+        }
+        function PrintCurrentPage() {
+            window.print();
+        }
+        function ShowCurrentDate() {
+            var currentDate = new Date();
+            var date = currentDate.getDate();
+            var month = currentDate.getMonth() + 1;
+            var year = currentDate.getFullYear();
+            document.write(month + "-" + date + "-" + year);
+        }
+        function CalAreaOfTriangle() {
+            var side1 = parseInt(document.getElementById("text1").value);
+            var side2 = parseInt(document.getElementById("text2").value);
+            var side3 = parseInt(document.getElementById("text3").value);
+            var allside = (side1 + side2 + side3);
+            var perimeter = allside / 2;
+            var area = Math.sqrt(perimeter * ((perimeter - side1) * (perimeter - side2) * (perimeter - side3)));
+            document.getElementById("p1").innerHTML = area;
+        };
+
+        function animate1() {
+            var v1 = document.getElementById("ani1");
+
+            document.write(v1);
+            
+                var v2 = v1[v1.lenght - 1];
+                document.write("V2:"+ v2);
+                var v3 = v1.substring(0, v1.lenght - 1);
+                document.write("V3:" + v3);
+                v1 = v2 + v3;
+                document.write(v1);
+            
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+c:\users\chahatj\documents\visual studio 2013\Projects\AngularJSLearning\AngularJSLearning\bin\AngularJSLearning.dll.config
+c:\users\chahatj\documents\visual studio 2013\Projects\AngularJSLearning\AngularJSLearning\bin\AngularJSLearning.dll
+c:\users\chahatj\documents\visual studio 2013\Projects\AngularJSLearning\AngularJSLearning\bin\AngularJSLearning.pdb
+c:\users\chahatj\documents\visual studio 2013\Projects\AngularJSLearning\AngularJSLearning\obj\Debug\AngularJSLearning.csprojResolveAssemblyReference.cache
+c:\users\chahatj\documents\visual studio 2013\Projects\AngularJSLearning\AngularJSLearning\obj\Debug\AngularJSLearning.dll
+c:\users\chahatj\documents\visual studio 2013\Projects\AngularJSLearning\AngularJSLearning\obj\Debug\AngularJSLearning.pdb
