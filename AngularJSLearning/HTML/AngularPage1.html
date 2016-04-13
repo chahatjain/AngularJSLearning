@@ -4,77 +4,148 @@
     <title>MyAngularProject</title>
     <script src="../JAVASCRIPT/angular.min.js"></script>
     <script src="../JAVASCRIPT/MyScript.js"></script>
+    <style>
+        #scrollArea {
+            height: 280px;
+            overflow: auto;
+        }
+
+        #bottom {
+            display: block;
+            margin-top: 5000px;
+        }
+
+        body {
+            padding-top: 50px;
+        }
+
+        .anchor {
+            border: 2px dashed DarkOrchid;
+            padding: 10px 10px 200px 10px;
+        }
+
+        .fixed-header {
+            background-color: rgba(0, 0, 0, 0.2);
+            height: 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+            .fixed-header > a {
+                display: inline-block;
+                margin: 5px 15px;
+            }
+    </style>
 </head>
-<body ng-app="myModule">
-    <div ng-controller="myController">
-        <!--<table>
+<body>
+    <!--<table>
+        <tr>
+            <td>FirstName</td>
+            <td>
+                <input type="text" ng-model="student.firstName" />
+            </td>
+        </tr>
+        <tr>
+            <td>LastName</td>
+            <td>
+                <input type="text" ng-model="student.lastName" />
+            </td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                <input type="text" ng-model="student.gender" />
+            </td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    <table>
+        <tr>
+            <td>FirstName</td>
+            <td>
+                {{ student.firstName }}
+            </td>
+        </tr>
+        <tr>
+            <td>LastName</td>
+            <td>
+                {{ student.lastName }}
+            </td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                {{ student.gender }}
+            </td>
+        </tr>
+    </table>-->
+    <!--<table>
+        <thead>
             <tr>
-                <td>FirstName</td>
-                <td>
-                    <input type="text" ng-model="student.firstName" />
-                </td>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Gender</th>
             </tr>
-            <tr>
-                <td>LastName</td>
-                <td>
-                    <input type="text" ng-model="student.lastName" />
-                </td>
+        </thead>
+        <tbody>
+            <tr ng-repeat="student in students">
+                <td> {{ student.firstName }} </td>
+                <td> {{ student.lastName }} </td>
+                <td> {{ student.gender }} </td>
             </tr>
-            <tr>
-                <td>Gender</td>
-                <td>
-                    <input type="text" ng-model="student.gender" />
-                </td>
-            </tr>
-        </table>
-        <br />
-        <br />
-        <table>
-            <tr>
-                <td>FirstName</td>
-                <td>
-                    {{ student.firstName }}
-                </td>
-            </tr>
-            <tr>
-                <td>LastName</td>
-                <td>
-                    {{ student.lastName }}
-                </td>
-            </tr>
-            <tr>
-                <td>Gender</td>
-                <td>
-                    {{ student.gender }}
-                </td>
-            </tr>
-        </table>--> 
-        <!--<table>
-            <thead>
-                <tr>
-                    <th>FirstName</th>
-                    <th>LastName</th>
-                    <th>Gender</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="student in students">
-                    <td> {{ student.firstName }} </td>
-                    <td> {{ student.lastName }} </td>
-                    <td> {{ student.gender }} </td>
-                </tr>
-            </tbody>
-        </table>-->
-        <ul>
-            <li ng-repeat="country in countries" ng-init="parentIndex=$index">
-                {{country.name}} - Index {{$index}}
-                <ul>
-                    <li ng-repeat="city in country.cities">
-                        {{city.name}} - ParentIndex {{parentIndex}} , Index {{$index}}
-                    </li>
-                </ul>
-            </li>
-        </ul>
+        </tbody>
+    </table>-->
+    <!--<ul>
+        <li ng-repeat="country in countries" ng-init="parentIndex=$index">
+            {{country.name}} - Index {{$index}}
+            <ul>
+                <li ng-repeat="city in country.cities">
+                    {{city.name}} - ParentIndex {{parentIndex}} , Index {{$index}}
+                </li>
+            </ul>
+        </li>
+    </ul>-->
+    <!--<div id ="simple" ng-controller="myController">
+        <p>Let's try this simple notify service, injected into the controller...</p>
+        <input ng-init="message='test'" ng-model="message">
+        <button ng-click="callNotify(message);">NOTIFY</button>
+        <p>(you have to click 3 times to see an alert)</p>
+    </div>-->
+    <!--<div id="scrollArea" ng-app="anchorScrollModule" ng-controller="anchorController">
+        <a ng-click="goToBottom();">Go To Bottom</a>
+        <a id="bottom"></a> You're at the bottom!
+    </div>-->
+    <!--<div class="fixed-header">
+        <a href="" ng-click="gotoAnchor(x)" ng-repeat="x in [1,2,3,4,5]">
+            Go to anchor {{x}}
+        </a>
     </div>
+    <div id="anchor{{x}}" class="anchor" ng-repeat="x in [1,2,3,4,5]">
+        Anchor {{x}} of 5
+    </div>-->
+
+    <div ng-app="cacheFactoryModule" ng-controller="cacheFactoryController">
+        <input ng-model="newCacheKey" placeholder="Key">
+        <input ng-model="newCacheValue" placeholder="Value">
+        <button ng-click="put(newCacheKey, newCacheValue)">Cache</button>
+
+        <p ng-if="keys.length">Cached Values</p>
+        <div ng-repeat="key in keys">
+            <span ng-bind="key"></span>
+            <span>: </span>
+            <b ng-bind="cache.get(key)"></b>
+        </div>
+
+        <p>Cache Info</p>
+        <div ng-repeat="(key, value) in cache.info()">
+            <span ng-bind="key"></span>
+            <span>: </span>
+            <b ng-bind="value"></b>
+        </div>
+    </div>
+
 </body>
 </html>
